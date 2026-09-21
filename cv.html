@@ -3,143 +3,238 @@ layout: page
 title: cv
 ---
 <div id="cv-inner-content">
-<section class="aboutme">
-    <div class="post_content">
-        <p>
-            你好，欢迎来看小张~
-        </p>
-        
-        <!-- =========下面是新增的教育/经历CV部分========= -->
-        
-        <style>
-         
-    .cv-tree {
-  
-  margin: 18px auto; 
-  overflow-x: hidden; 
-  max-width: 1600px;  /* 新增这一行 */
-  width: 100%;
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui, -apple-system, sans-serif;}
+.cv-wrap{padding:16px 8px;}
+
+/* 板块大标题 */
+.block-header{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:19px;
+    font-weight:bold;
+    margin:24px 0 10px;
+    cursor:pointer;
+    user-select:none;
 }
-.cv-tree details {
-  margin: 0;
+.block-arrow{
+    font-size:14px;
+    width:18px;
 }
-.cv-tree summary.cv-tree-title {
-  color: #369;
-  font-size: 1.2em;
-  cursor: pointer;
-  padding: 4px 0;
-  list-style: revert;
+.block-container{
+    overflow:hidden;
 }
-.cv-tree-children {
-  margin: 8px 0 0 12px;
-  padding: 0;
+
+/* 树状条目：学校/工作 可折叠节点 */
+.tree-node{
+    position:relative;
+    margin-left:26px;
 }
-.tree-item {
-  position: relative;
-  margin: 6px 0;
-  padding-left: 24px;
-  line-height: 1.7;
-  font-size: 0.88em; /* 全局缩小字体 */
+.tree-node::before{
+    content:"";
+    position:absolute;
+    left:-16px;
+    top:0;
+    width:1px;
+    height:100%;
+    background:#999;
 }
-.tree-item::before {
-  content: "├─";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #aaa;
+.tree-node::after{
+    content:"";
+    position:absolute;
+    left:-16px;
+    top:14px;
+    width:12px;
+    height:1px;
+    background:#999;
 }
-.tree-item.last::before {
-  content: "└─";
+
+/* 学校/工作的标题行（带独立折叠箭头） */
+.tree-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:5px 0;
+    cursor:pointer;
+    user-select:none;
 }
-/* ↓在这里粘贴新增代码 */
-.tree-item > .tree-row {
-  margin-left: 12px;
+.tree-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
-.tree-row {
-  display: grid;
-  /* 百分比分配：学校占40%，专业30%，时间30%，总和100% */
-  grid-template-columns: 40% 20% 40%;
-  gap: 14px; /* 增大栏与栏之间的空隙，你可以改成24px/36px微调 */
-  width: 100%;
+.node-arrow{
+    font-size:14px;
+    width:18px;
 }
-.school-name {
-  white-space: nowrap;
-  text-align: left;
+.time-text{
+    color:#444;
+    white-space:nowrap;
 }
-.major-name {
-  white-space: nowrap;
-  text-align: left;
+
+/* 子节点：专业、岗位 */
+.tree-children{
+    margin-left:24px;
+    overflow:hidden;
 }
-.time {
-  white-space: nowrap;
-  /*color:#666;*/
-  text-align: left;
+.child-row{
+    display:flex;
+    justify-content:space-between;
+    padding:4px 0;
+    color:#444;
 }
-        </style>
-  
-     <div class="cv-tree">
-      <details class="cv-tree" open>
-  <summary class="cv-tree-title">Work experience/</summary>
-  <div class="cv-tree-children">
-    <div class="tree-item last">
-      <div class="tree-row">
-        <span class="school-name">广州广日电梯工业有限公司</span>
-        <span class="major-name">费用会计</span>
-        <span class="time">2023.12-2024.04</span>
-      </div>
-    </div>
-  </div>
-</details>
-   <details class="cv-tree" open>
-  <summary class="cv-tree-title">Education background/</summary>
-  <div class="cv-tree-children">
-    <div class="tree-item">
-      <div class="tree-row">
-        <span class="school-name">长江大学</span>
-        <span class="major-name">会计专硕</span>
-        <span class="time">2020.09-2023.06</span>
-      </div>
-    </div>
-    <div class="tree-item">
-      <div class="tree-row">
-        <span class="school-name">广东海洋大学</span>
-        <span class="major-name">财务管理</span>
-        <span class="time">2016.09-2020.06</span>
-      </div>
-    </div>
-    <div class="tree-item">
-      <div class="tree-row">
-        <span class="school-name">信宜中学</span>
-        <span class="major-name"></span>
-        <span class="time">2013.09-2016.06</span>
-      </div>
-    </div>
-    <div class="tree-item">
-      <div class="tree-row">
-        <span class="school-name">信宜市教育城初中</span>
-        <span class="major-name"></span>
-        <span class="time">2010.09-2013.06</span>
-      </div>
-    </div>
-    <div class="tree-item">
-    <div class="tree-row">
-      <span class="school-name">信宜市第三小学</span>
-      <span class="major-name"></span>
-      <span class="time">2004.09-2010.06</span>
-    </div>
-  </div> 
-     
-    <div class="tree-item last">
-    <div class="tree-row">
-      <span class="school-name">（旧）城东幼儿园</span>
-      <span class="major-name"></span>
-      <span class="time">？</span>
-    </div>
-  </div> 
-  </div>
-</details>
+</style>
+
+<div class="cv-wrap">
+
+<!-- ========= Work experience 板块（整体可折叠） ========= -->
+<div class="block-header" data-block="work">
+    <span class="block-arrow">▼</span>
+    <span>Work experience/</span>
 </div>
-        <!-- =========CV新增代码结束========= -->
+<div class="block-container" id="work">
+    <div class="tree-node">
+        <div class="tree-row" data-node>
+            <div class="tree-title">
+                <span class="node-arrow">▼</span>
+                <span>广州广日电梯工业有限公司</span>
+            </div>
+            <div class="time-text">2023.12‑2024.04</div>
+        </div>
+        <div class="tree-children">
+            <div class="child-row">
+                <div>费用会计</div>
+                <div></div>
+            </div>
+        </div>
     </div>
-</section>
+</div>
+
+
+<!-- ========= Education background 板块（整体可折叠） ========= -->
+<div class="block-header" data-block="edu">
+    <span class="block-arrow">▼</span>
+    <span>Education background/</span>
+</div>
+<div class="block-container" id="edu">
+
+    <div class="tree-node">
+        <div class="tree-row" data-node>
+            <div class="tree-title">
+                <span class="node-arrow">▼</span>
+                <span>长江大学</span>
+            </div>
+            <div class="time-text">2020.09‑2023.06</div>
+        </div>
+        <div class="tree-children">
+            <div class="child-row">
+                <div>会计专硕</div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tree-node">
+        <div class="tree-row" data-node>
+            <div class="tree-title">
+                <span class="node-arrow">▼</span>
+                <span>广东海洋大学</span>
+            </div>
+            <div class="time-text">2016.09‑2020.06</div>
+        </div>
+        <div class="tree-children">
+            <div class="child-row">
+                <div>财务管理</div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tree-node">
+        <div class="tree-row" data-node>
+            <div class="tree-title">
+                <span class="node-arrow">▶</span>
+                <span>信宜中学</span>
+            </div>
+            <div class="time-text">2013.09‑2016.06</div>
+        </div>
+        <div class="tree-children" style="display:none;">
+        </div>
+    </div>
+
+    <div class="tree-node">
+        <div class="tree-row" data-node>
+            <div class="tree-title">
+                <span class="node-arrow">▶</span>
+                <span>信宜市教育城初中</span>
+            </div>
+            <div class="time-text">2010.09‑2013.06</div>
+        </div>
+        <div class="tree-children" style="display:none;">
+        </div>
+    </div>
+
+    <div class="tree-node">
+        <div class="tree-row" data-node>
+            <div class="tree-title">
+                <span class="node-arrow">▶</span>
+                <span>信宜市第三小学</span>
+            </div>
+            <div class="time-text">2004.09‑2010.06</div>
+        </div>
+        <div class="tree-children" style="display:none;">
+        </div>
+    </div>
+
+    <div class="tree-node">
+        <div class="tree-row" data-node>
+            <div class="tree-title">
+                <span class="node-arrow">▶</span>
+                <span>(旧) 城东幼儿园</span>
+            </div>
+            <div class="time-text">?</div>
+        </div>
+        <div class="tree-children" style="display:none;">
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<script>
+// 1.大板块整体折叠
+document.querySelectorAll('.block-header').forEach(header=>{
+    header.addEventListener('click',function(){
+        const blockId = this.dataset.block;
+        const blockEl = document.getElementById(blockId);
+        const arrow = this.querySelector('.block-arrow');
+        if(blockEl.style.display === 'none'){
+            blockEl.style.display = 'block';
+            arrow.textContent = '▼';
+        }else{
+            blockEl.style.display = 'none';
+            arrow.textContent = '▶';
+        }
+    })
+})
+
+// 2.每一个学校/工作条目独立折叠
+document.querySelectorAll('[data-node]').forEach(row=>{
+    row.addEventListener('click',function(){
+        const children = this.nextElementSibling;
+        const arrow = this.querySelector('.node-arrow');
+        if(!children) return;
+        if(children.style.display === 'none'){
+            children.style.display = 'block';
+            arrow.textContent = '▼';
+        }else{
+            children.style.display = 'none';
+            arrow.textContent = '▶';
+        }
+    })
+})
+</script>
+
 </div>
