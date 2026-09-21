@@ -48,10 +48,10 @@ title: cv
   content: "└─";
 }
 
-/* 两栏布局，缩小gap拉近学校和时间距离，全部左对齐 */
+/* 两栏布局，固定结构保证时间列全部对齐 */
 .tree-row {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr auto;
   gap: 12px;
   width: 100%;
 }
@@ -103,6 +103,12 @@ title: cv
   top:0;
   color:#aaa;
 }
+
+/* 给无折叠条目增加左侧占位，和三角宽度保持一致，实现时间对齐 */
+.tree-item > .tree-row {
+  padding-left: 20px;
+  box-sizing: border-box;
+}
         </style>
   
      <div class="cv-tree">
@@ -148,7 +154,7 @@ title: cv
       </details>
     </div>
 
-    <!-- 无专业条目，无折叠三角，两栏左对齐，间距同步缩小 -->
+    <!-- 无专业条目，自动左侧占位，时间和上方统一对齐 -->
     <div class="tree-item">
       <div class="tree-row">
         <span class="school-name">信宜中学</span>
