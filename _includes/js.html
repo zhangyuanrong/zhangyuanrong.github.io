@@ -254,10 +254,15 @@ document.addEventListener('DOMContentLoaded', function(){
     // const mainDom = document.querySelector('#main');
     const mainDom = document.querySelector('#main') || document.querySelector('.main') || document.querySelector('.content') || document.querySelector('.post_content');
 
-    if(!mainDom){
-      window.location.href = url;
-      return;
-    }
+   
+     
+    alert("cv点击触发成功！");
+if(!mainDom){
+  window.location.href = url;
+  return;
+}
+
+
     fetch(url)
       .then(res=>res.text())
       .then(html=>{
