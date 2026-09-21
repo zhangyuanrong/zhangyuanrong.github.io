@@ -1,4 +1,5 @@
 <header class="header">
+
   <div class="header_content">
     <label class="theme_changer">
       <input theme_toggle type="checkbox">
@@ -11,7 +12,248 @@
     <span class="header_job">{{ site.user.job }}</span>
     <span class="header_mes">{{ site.user.message }}</span>
 
-<!-- 所有链接全部放在同一个div容器内部，for循环也包进来！ -->
+
+
+{% comment %}
+
+<!-- ============新增学术社交链接开始============ -->
+
+<div class="social-links" style="margin-top:1.5rem !important; margin-bottom:8px;">
+  <div style="display:flex;align-items:center;margin-bottom:4px;">
+    <i class="fa fa-envelope"></i>
+    <a href="mailto:zhangyuanrong62@gmail.com">Email</a>
+    
+  </div>
+  <div style="display:flex;align-items:center;">
+    <i class="fa fa-github"></i>
+    <a href="https://github.com/zhangyuanrong" target="_blank">Github</a>
+    
+  </div>
+</div>
+
+<!-- ============新增学术社交链接开始============ -->
+
+{% endcomment %}
+
+
+{% comment %} 
+
+
+<div style="width:fit-content;margin-left:auto;margin-right:auto;text-align:left;">
+  <nav class="nav">
+      {% if site.user.aboutme %}
+      
+      <!--   【旧版代码：链接不带图标】
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="{{ site.baseurl }}/cv.html">cv</a>
+        </li>
+      </ul>
+       -->
+      
+     
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="{{ site.baseurl }}/cv.html"><i class="fa fa-file-text-o"></i> cv</a>
+        </li>
+      </ul>
+      
+     
+
+
+     <!--   【旧版代码：链接不带图标】
+     {% for category in site.categories %}
+     {% capture cat_name %}{{ category | first }}{% endcapture %}
+      <ul class="nav_list">
+       <li class="nav_item">
+        {% assign show_name = cat_name %}
+        {% if cat_name == "wechat" %}{% assign show_name = "wechat" %}{% endif %}
+        {% if cat_name == "bilibili" %}{% assign show_name = "bilibili" %}{% endif %}
+        {% if cat_name == "writing" %}{% assign show_name = "writing" %}{% endif %}
+        <a href="{{ site.baseurl }}/categories/{{ cat_name }}">
+         {{ show_name }} ({{ category | last | size }})
+        </a>
+       </li>
+      </ul>
+     {% endfor %}
+    【旧版代码，链接不带图标】   -->
+
+
+
+    
+    {% for category in site.categories %}
+    {% capture cat_name %}{{ category | first }}{% endcapture %}
+    <ul class="nav_list">
+     <li class="nav_item">
+     {% assign show_name = cat_name %}
+     {% assign show_icon = "" %}
+     {% if cat_name == "wechat" %}{% assign show_name = "wechat" %}{% assign show_icon = "fa-wechat" %}{% endif %}
+     {% if cat_name == "bilibili" %}{% assign show_name = "bilibili" %}{% assign show_icon = "fa-television" %}{% endif %}
+     {% if cat_name == "writing" %}{% assign show_name = "writing" %}{% assign show_icon = "fa-pencil" %}{% endif %}
+     <a href="{{ site.baseurl }}/categories/{{ cat_name }}"><i class="fa {{ show_icon }}"></i> {{ show_name }} ({{ category | last | size }})</a>
+     </li>
+    </ul>
+    {% endfor %}
+  
+    {% endif %}
+    </nav>
+  </div>
+   
+   {% endcomment %}
+
+
+
+
+   {% comment %} 
+   <div style="width:fit-content;margin-left:auto;margin-right:auto;text-align:left;">
+  <!-- 【1】Email Github 保持你原来的flex结构 -->
+  <div style="display:flex;align-items:center;margin-bottom:4px;">
+    <i class="fa fa-envelope"></i>
+    <a href="mailto:zhangyuanrong62@gmail.com" style="margin-left:8px;">Email</a>
+  </div>
+  <div style="display:flex;align-items:center;">
+    <i class="fa fa-github"></i>
+    <a href="https://github.com/zhangyuanrong" target="_blank" style="margin-left:8px;">Github</a>
+  </div>
+
+  <!-- 【2】cv 改成同样flex，不再用ul li -->
+  <div style="display:flex;align-items:center;margin-top:8px;">
+    <i class="fa fa-file-text-o"></i>
+    <a href="{{ site.baseurl }}/cv.html" style="margin-left:8px;">cv</a>
+  </div>
+
+  <!-- 【3】循环：bilibili wechat writing，全部flex，和上面结构统一！！ -->
+  {% for category in site.categories %}
+    {% capture cat_name %}{{ category | first }}{% endcapture %}
+    {% assign show_name = cat_name %}
+    {% assign show_icon = "" %}
+    {% if cat_name == "wechat" %}{% assign show_icon = "fa-wechat" %}{% endif %}
+    {% if cat_name == "bilibili" %}{% assign show_icon = "fa-television" %}{% endif %}
+    {% if cat_name == "writing" %}{% assign show_icon = "fa-pencil" %}{% endif %}
+
+    <div style="display:flex;align-items:center;margin-top:8px;">
+      <i class="fa {{ show_icon }}"></i>
+      <a href="{{ site.baseurl }}/categories/{{ cat_name }}" style="margin-left:8px;">
+        {{ show_name }} ({{ category | last | size }})
+      </a>
+    </div>
+  {% endfor %}
+</div>
+{% endcomment %}
+
+
+
+ 
+
+<!--
+<div style="width:fit-content;margin:24px auto 0;text-align:left;margin-left:calc(50% - 30px);">
+    <div style="display:flex;align-items:center;margin-bottom:12px;">
+      <i class="fa fa-envelope" style="width:22px;text-align:left;"></i>
+      <a href="mailto:zhangyuanrong62@gmail.com" style="margin-left:10px;">Email</a>
+    </div>
+    <div style="display:flex;align-items:center;margin-bottom:12px;">
+      <i class="fa fa-github" style="width:22px;text-align:left;"></i>
+      <a href="https://github.com/zhangyuanrong" target="_blank" style="margin-left:10px;color:#0000EE;">Github</a>
+    </div>
+    <div style="display:flex;align-items:center;margin-bottom:12px;">
+      <i class="fa fa-file-text-o" style="width:22px;text-align:left;"></i>
+      <a href="{{ site.baseurl }}/cv.html" style="margin-left:10px;color:#0000EE;">cv</a>
+    </div>
+    {% for category in site.categories %}
+    {% capture cat_name %}{{ category | first }}{% endcapture %}
+    {% assign show_name = cat_name %}
+    {% assign show_icon = "" %}
+    {% if cat_name == "wechat" %}{% assign show_icon = "fa-wechat" %}{% endif %}
+    {% if cat_name == "bilibili" %}{% assign show_icon = "fa-television" %}{% endif %}
+    {% if cat_name == "writing" %}{% assign show_icon = "fa-pencil" %}{% endif %}
+    <div style="display:flex;align-items:center;margin-bottom:12px;">
+      <i class="fa {{ show_icon }}" style="width:22px;text-align:left;"></i>
+      <a href="{{ site.baseurl }}/categories/{{ cat_name }}" style="margin-left:10px;color:#0000EE;">
+        {{ show_name }} ({{ category | last | size }})
+      </a>
+    </div>
+    {% endfor %}
+</div>
+ -->
+
+<!--
+  <div style="width:fit-content;margin:24px auto 0;text-align:left;margin-left:calc(50% - 30px);">
+  <div style="display:flex;align-items:center;margin-bottom:12px;">
+    <i class="fa fa-envelope" style="width:22px;text-align:left;"></i>
+    <a href="mailto:zhangyuanrong62@gmail.com" style="margin-left:10px;">Email</a>
+  </div>
+  <div style="display:flex;align-items:center;margin-bottom:12px;">
+    <i class="fa fa-github" style="width:22px;text-align:left;"></i>
+    <a href="https://github.com/zhangyuanrong" target="_blank" style="margin-left:10px;color:#0000EE;">Github</a>
+  </div>
+  <div style="display:flex;align-items:center;margin-bottom:12px;">
+    <i class="fa fa-file-text-o" style="width:22px;text-align:left;"></i>
+    <a href="{{ site.baseurl }}/cv.html" style="margin-left:10px;color:#0000EE;">cv</a>
+  </div>
+  {% for category in site.categories %}
+  {% capture cat_name %}{{ category | first }}{% endcapture %}
+  {% assign show_name = cat_name %}
+  {% assign show_icon = "" %}
+  {% assign icon_color = "#000000" %}
+  {% if cat_name == "wechat" %}
+    {% assign show_icon = "fa-wechat" %}
+    {% assign icon_color = "#07c160" %}
+  {% endif %}
+  {% if cat_name == "bilibili" %}{% assign show_icon = "fa-television" %}{% endif %}
+  {% if cat_name == "writing" %}{% assign show_icon = "fa-pencil" %}{% endif %}
+  <div style="display:flex;align-items:center;margin-bottom:12px;">
+    <i class="fa {{ show_icon }}" style="width:22px;text-align:left;color:{{ icon_color }};"></i>
+    <a href="{{ site.baseurl }}/categories/{{ cat_name }}" style="margin-left:10px;color:#0000EE;">
+      {{ show_name }} ({{ category | last | size }})
+    </a>
+  </div>
+  {% endfor %}
+</div>
+ -->
+
+<!--
+<div style="width:fit-content;margin:24px auto 0;text-align:left;margin-left:calc(50% - 30px);">
+  <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+    <i class="fa fa-envelope" style="width:22px;text-align:left;"></i>
+    <a href="mailto:zhangyuanrong62@gmail.com" style="margin-left:10px;">Email</a>
+  </div>
+  <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+    <i class="fa fa-github" style="width:22px;text-align:left;"></i>
+    <a href="https://github.com/zhangyuanrong" target="_blank" style="margin-left:10px;color:#0000EE;">Github</a>
+  </div>
+  <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+    <i class="fa fa-file-text-o" style="width:22px;text-align:left;"></i>
+    <a href="{{ site.baseurl }}/cv.html" style="margin-left:10px;color:#0000EE;">cv</a>
+  </div>
+  {% for category in site.categories %}
+    {% capture cat_name %}{{ category | first }}{% endcapture %}
+    {% assign show_name = cat_name %}
+    {% assign show_icon = "" %}
+    {% assign icon_color = "#000000" %}
+    {% if cat_name == "wechat" %}
+      {% assign show_icon = "fa-wechat" %}
+      {% assign icon_color = "#07c160" %}
+    {% endif %}
+    {% if cat_name == "bilibili" %}
+      {% assign show_icon = "bili-img" %}
+    {% endif %}
+    {% if cat_name == "writing" %}
+      {% assign show_icon = "fa-pencil" %}
+    {% endif %}
+    <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+      {% if show_icon == "bili-img" %}
+<span style="width:22px;display:inline-flex;align-items:center;"><img src="{{ site.baseurl }}/assets/img/bilibili.png" style="width:20px;height:20px;object-fit:cover;"></span>
+      {% else %}
+        <i class="fa {{ show_icon }}" style="width:22px;text-align:left;color:{{ icon_color }};"></i>
+      {% endif %}
+      <a href="{{ site.baseurl }}/categories/{{ cat_name }}" style="margin-left:10px;color:#0000EE;">
+        {{ show_name }} ({{ category | last | size }})
+      </a>
+    </div>
+  {% endfor %}
+</div>
+ -->
+
 <div style="width:fit-content;margin:24px auto 0;text-align:left;margin-left:calc(50% - 30px);">
   <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
     <i class="fa fa-envelope" style="width:22px;text-align:left;"></i>
@@ -19,46 +261,104 @@
   </div>
   <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
     <i class="fa fa-github" style="width:22px;text-align:left;color: #5a32a8;"></i>
-    <a href="https://github.com/zhangyuanrong" target="_blank" rel="noopener noreferrer" style="margin-left:10px;color: #2b548c;">Github</a>
+    <a href="https://github.com/zhangyuanrong" target="_blank" style="margin-left:10px;color: #2b548c;">Github</a>
   </div>
-
+  
   <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
     <i class="fa fa-linkedin-square" style="width:22px;text-align:left;color:#0077B5;"></i>
-    <a href="{{ site.baseurl }}/cv.html" target="_blank" rel="noopener noreferrer" style="margin-left:10px;color: #2b548c;">cv</a>
+    <a href="{{ site.baseurl }}/cv.html" style="margin-left:10px;color: #2b548c;">cv</a>
   </div>
-
+  
+  
+ <!-- 
   {% for category in site.categories %}
-  {% capture cat_name %}{{ category | first }}{% endcapture %}
-  {% assign show_name = cat_name %}
-  {% assign show_icon = "" %}
-  {% assign icon_color = "#000000" %}
-  {% if cat_name == "wechat" %}
-  {% assign show_icon = "fa-wechat" %}
-  {% assign icon_color = "#07c160" %}
-  {% endif %}
-  {% if cat_name == "bilibili" %}
-  {% assign show_icon = "bili-img" %}
-  {% endif %}
-  {% if cat_name == "writing" %}
-  {% assign show_icon = "md-img" %}
-  {% endif %}
-  <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
-  <span style="width:22px;display:inline-flex;align-items:center;">
-  {% if show_icon == "bili-img" %}
-    <img src="{{ site.baseurl }}/assets/img/bilibili.png" style="width:20px;height:20px;object-fit:cover;margin-left:-2px;">
-  {% elsif show_icon == "md-img" %}
-    <img src="{{ site.baseurl }}/assets/img/md.png" style="width:20px;height:20px;object-fit:cover;margin-left:-2px;filter:drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 4px #ffffff);">
-  {% else %}
-    <i class="fa {{ show_icon }}" style="width:22px;text-align:left;color:{{ icon_color }};"></i>
-  {% endif %}
-  </span>
-  <a href="{{ site.baseurl }}/categories/{{ cat_name }}" target="_blank" rel="noopener noreferrer" style="margin-left:10px;color:#2b548c;">
-  {{ show_name }} ({{ category | last | size }})
-  </a>
-  </div>
+    {% capture cat_name %}{{ category | first }}{% endcapture %}
+    {% assign show_name = cat_name %}
+    {% assign show_icon = "" %}
+    {% assign icon_color = "#000000" %}
+    {% if cat_name == "wechat" %}
+      {% assign show_icon = "fa-wechat" %}
+      {% assign icon_color = "#07c160" %}
+    {% endif %}
+    {% if cat_name == "bilibili" %}
+      {% assign show_icon = "bili-img" %}
+    {% endif %}
+   {% if cat_name == "writing" %}
+   {% assign show_icon = "md-img" %}
+   {% endif %}
+    
+
+   <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+      {% if show_icon == "bili-img" %}
+<span style="width:22px;display:inline-flex;align-items:center;"><img src="{{ site.baseurl }}/assets/img/bilibili.png" style="width:20px;height:20px;object-fit:cover;margin-left:-2px;"></span>
+      {% else %}
+        <i class="fa {{ show_icon }}" style="width:22px;text-align:left;color:{{ icon_color }};"></i>
+      {% endif %}
+      <a href="{{ site.baseurl }}/categories/{{ cat_name }}" style="margin-left:10px;color: #2b548c;">
+        {{ show_name }} ({{ category | last | size }})
+      </a>
+    </div>
   {% endfor %}
-
 </div>
+   -->
+ 
 
-  </div>
+
+{% for category in site.categories %}
+{% capture cat_name %}{{ category | first }}{% endcapture %}
+{% assign show_name = cat_name %}
+{% assign show_icon = "" %}
+{% assign icon_color = "#000000" %}
+
+{% if cat_name == "wechat" %}
+{% assign show_icon = "fa-wechat" %}
+{% assign icon_color = "#07c160" %}
+{% endif %}
+{% if cat_name == "bilibili" %}
+{% assign show_icon = "bili-img" %}
+{% endif %}
+{% if cat_name == "writing" %}
+{% assign show_icon = "md-img" %}
+{% endif %}
+
+<div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+<span style="width:22px;display:inline-flex;align-items:center;">
+{% if show_icon == "bili-img" %}
+  <img src="{{ site.baseurl }}/assets/img/bilibili.png" style="width:20px;height:20px;object-fit:cover;margin-left:-2px;">
+{% elsif show_icon == "md-img" %}
+  <img src="{{ site.baseurl }}/assets/img/md.png" style="width:20px;height:20px;object-fit:cover;margin-left:-2px;filter:drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 4px #ffffff);">
+
+{% else %}
+  <i class="fa {{ show_icon }}" style="width:22px;text-align:left;color:{{ icon_color }};"></i>
+{% endif %}
+</span>
+<a href="{{ site.baseurl }}/categories/{{ cat_name }}" style="margin-left:10px;color:#2b548c;">
+{{ show_name }} ({{ category | last | size }})
+</a>
+</div>
+{% endfor %}
+
+
+
+ <!-- 【音乐播放器】
+<div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+<span style="width:22px;display:inline-flex;align-items:center;cursor:pointer;" onclick="openMusicPanel()">
+  <i class="fa fa-music" style="width:22px;text-align:left;color:#000000;"></i>
+</span>
+<a href="javascript:void(0)" onclick="openMusicPanel()" style="margin-left:10px;color:#2b548c;" id="musicText">Music</a>
+</div>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
 </header>
+
