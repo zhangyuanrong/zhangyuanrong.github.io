@@ -224,7 +224,7 @@
   {% endfor %}
 </div>
  -->
-<div style="width:fit-content;margin:24px auto 0;text-align:left;margin-left:calc(50% - 30px);">
+<div class="mobile-link-group" style="width:fit-content;margin:24px auto 0;text-align:left;margin-left:calc(50% - 30px);">
   <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
     <i class="fa fa-envelope" style="width:22px;text-align:left;"></i>
     <a href="mailto:zhangyuanrong62@gmail.com" data-no-pjax style="margin-left:10px;color: #2b548c;">Email</a>
@@ -236,8 +236,7 @@
   
   <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
     <i class="fa fa-linkedin-square" style="width:22px;text-align:left;color:#0077B5;"></i>
-     <!--<a href="{{ site.baseurl }}/cv.html" style="margin-left:10px;color: #2b548c;">cv</a> -->
-    <a href="{{ site.baseurl }}/cv.html" class="pjax‑cv‑link" style="margin-left:10px;color: #2b548c;">cv</a>
+    <a href="{{ site.baseurl }}/cv.html" data-no-pjax style="margin-left:10px;color: #2b548c;">cv</a>
   </div>
   
   
@@ -302,6 +301,28 @@
 </a>
 </div>
 {% endfor %}
+</div>
+
+<style>
+/*手机端：链接组改为横向自动换行，电脑端维持原有竖向*/
+@media (max-width:768px){
+  .mobile-link-group{
+    width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    text-align:center !important;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px 16px;
+  }
+  .mobile-link-group > div{
+    margin-bottom:0 !important;
+    padding-left:0 !important;
+  }
+}
+</style>
+
  <!-- 【音乐播放器】
 <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
 <span style="width:22px;display:inline-flex;align-items:center;cursor:pointer;" onclick="openMusicPanel()">
