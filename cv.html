@@ -1,8 +1,8 @@
 ---
 layout: page
 title: cv
+pjax_exclude_layout: true
 ---
-
 <section class="aboutme">
     <div class="post_content">
         <p>
@@ -13,15 +13,12 @@ title: cv
         
         <style>
          
-
     .cv-tree {
   
   margin: 18px auto; 
   overflow-x: hidden; 
-
   max-width: 1600px;  /* 新增这一行 */
   width: 100%;
-
 }
 .cv-tree details {
   margin: 0;
@@ -54,14 +51,10 @@ title: cv
 .tree-item.last::before {
   content: "└─";
 }
-
 /* ↓在这里粘贴新增代码 */
 .tree-item > .tree-row {
   margin-left: 12px;
 }
-
-
-
 .tree-row {
   display: grid;
   /* 百分比分配：学校占40%，专业30%，时间30%，总和100% */
@@ -82,19 +75,9 @@ title: cv
   /*color:#666;*/
   text-align: left;
 }
-
-
         </style>
-
-
-
-
-
-
-
   
      <div class="cv-tree">
-
       <details class="cv-tree" open>
   <summary class="cv-tree-title">Work experience/</summary>
   <div class="cv-tree-children">
@@ -107,10 +90,6 @@ title: cv
     </div>
   </div>
 </details>
-
-
-
-
    <details class="cv-tree" open>
   <summary class="cv-tree-title">Education background/</summary>
   <div class="cv-tree-children">
@@ -157,25 +136,13 @@ title: cv
       <span class="time">？</span>
     </div>
   </div> 
-
-
   </div>
 </details>
 </div>
-
         <!-- =========CV新增代码结束========= -->
-
-
    
          
    
    
-
-
-
-
-
-
-
     </div>
 </section>
