@@ -303,25 +303,28 @@
 {% endfor %}
 </div>
 
+
 <style>
-/*手机端：链接组改为横向自动换行，电脑端维持原有竖向*/
+/* 手机屏幕（768px以下）链接改为横向排列 */
 @media (max-width:768px){
-  .mobile-link-group{
-    width:100% !important;
-    margin-left:0 !important;
-    margin-right:0 !important;
-    text-align:center !important;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:14px 16px;
-  }
-  .mobile-link-group > div{
-    margin-bottom:0 !important;
-    padding-left:0 !important;
-  }
+.sidebar-link-wrap {
+width:100% !important;
+margin-left:0 !important;
+text-align:center !important;
+margin-bottom:24px !important;  /* 新增这一行，增加下方空白，隔开下面文章 */
+}
+.sidebar-link-wrap > div {
+display:inline-flex !important;
+margin-right:12px !important;
+margin-bottom:8px !important;
+}
 }
 </style>
+
+
+
+
+
 
  <!-- 【音乐播放器】
 <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
