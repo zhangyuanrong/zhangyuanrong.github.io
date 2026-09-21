@@ -1,0 +1,69 @@
+<div class="mobile-link-group" style="width:fit-content;margin:24px auto 0;text-align:left;margin-left:calc(50% - 30px);">
+  <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+    <i class="fa fa-envelope" style="width:22px;text-align:left;"></i>
+    <a href="mailto:zhangyuanrong62@gmail.com" data-no-pjax style="margin-left:10px;color: #2b548c;">Email</a>
+  </div>
+  <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+    <i class="fa fa-github" style="width:22px;text-align:left;color: #5a32a8;"></i>
+    <a href="https://github.com/zhangyuanrong" target="_blank" data-no-pjax style="margin-left:10px;color: #2b548c;">Github</a>
+  </div>
+
+  <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+    <i class="fa fa-linkedin-square" style="width:22px;text-align:left;color:#0077B5;"></i>
+    <a href="{{ site.baseurl }}/cv.html" data-no-pjax style="margin-left:10px;color: #2b548c;">cv</a>
+  </div>
+
+{% for category in site.categories %}
+{% capture cat_name %}{{ category | first }}{% endcapture %}
+{% assign show_name = cat_name %}
+{% assign show_icon = "" %}
+{% assign icon_color = "#000000" %}
+{% if cat_name == "wechat" %}
+{% assign show_icon = "fa-wechat" %}
+{% assign icon_color = "#07c160" %}
+{% endif %}
+{% if cat_name == "bilibili" %}
+{% assign show_icon = "bili-img" %}
+{% endif %}
+{% if cat_name == "writing" %}
+{% assign show_icon = "md-img" %}
+{% endif %}
+  <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
+    <span style="width:22px;display:inline-flex;align-items:center;">
+{% if show_icon == "bili-img" %}
+      <img src="{{ site.baseurl }}/assets/img/bilibili.png" style="width:20px;height:20px;object-fit:cover;margin-left:-2px;">
+{% elsif show_icon == "md-img" %}
+      <img src="{{ site.baseurl }}/assets/img/md.png" style="width:20px;height:20px;object-fit:cover;margin-left:-2px;filter:drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 4px #ffffff);">
+{% else %}
+      <i class="fa {{ show_icon }}" style="width:22px;text-align:left;color:{{ icon_color }};"></i>
+{% endif %}
+    </span>
+    <a href="{{ site.baseurl }}/categories/{{ cat_name }}" style="margin-left:10px;color:#2b548c;">
+{{ show_name }} ({{ category | last | size }})
+    </a>
+  </div>
+{% endfor %}
+</div>
+
+<style>
+/*手机端：全部6条链接统一横向换行；电脑保持竖向。只给整个导航块底部留空隙，不挪动导航自身上下位置 */
+@media (max-width:768px){
+  .mobile-link-group{
+    width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    text-align:center !important;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px 16px;
+    /* 只作用于导航块的【下方】，导航本身的top位置不动！ */
+    margin-top:0 !important;
+    margin-bottom:28px !important;
+  }
+  .mobile-link-group > div{
+    margin-bottom:0 !important;
+    padding-left:0 !important;
+  }
+}
+</style>
