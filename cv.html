@@ -2,166 +2,201 @@
 layout: page
 title: cv
 ---
+
 <div id="cv-inner-content">
 <section class="aboutme">
     <div class="post_content">
-        <p>
-            你好，欢迎来看小张~
-        </p>
-        
-        <!-- =========下面是新增的教育/经历CV部分========= -->
-        
+
+        <p>你好，欢迎来看小张~</p>
+
         <style>
-    .cv-tree {
-  margin: 18px auto; 
-  overflow-x: hidden; 
-  max-width: 1600px;
-  width: 100%;
-}
-.cv-tree details {
-  margin: 0;
-}
-.cv-tree summary.cv-tree-title {
-  color: #369;
-  font-size: 1.2em;
-  cursor: pointer;
-  padding: 4px 0;
-  list-style: revert;
-}
-.cv-tree-children {
-  margin: 8px 0 0 12px;
-  padding: 0;
-}
-.tree-item {
-  position: relative;
-  margin: 6px 0;
-  padding-left: 24px;
-  line-height: 1.7;
-  font-size: 0.88em;
-}
-.tree-item::before {
-  content: "├─";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #aaa;
-}
-.tree-item.last::before {
-  content: "└─";
-}
+        .cv-box {
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #444;
+        }
 
-/* 学校/公司标题行：两栏布局 名称左 时间右 */
-.tree-row {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.school-name {
-  text-align: left;
-}
-.time {
-  white-space: nowrap;
-  color:#666;
-  text-align: right;
-}
+        .cv-box details {
+            margin-bottom: 6px;
+        }
 
-/* 专业子条目，缩进，子树符号 */
-.tree-sub {
-  position:relative;
-  margin:4px 0 4px 22px;
-  padding-left:22px;
-}
-.tree-sub::before {
-  content:"└─";
-  position:absolute;
-  left:0;
-  top:0;
-  color:#aaa;
-}
+        .cv-box summary {
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .cv-box summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .cv-box .cv-section-title {
+            color: #369;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 4px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .cv-box .cv-section-title::before {
+            content: "▼";
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 13px;
+            color: #369;
+        }
+
+        .cv-box details[open] > .cv-section-title::before {
+            content: "▼";
+        }
+
+        .cv-item {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .cv-item::before {
+            content: "├─";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #aaa;
+        }
+
+        .cv-item:last-child::before {
+            content: "└─";
+        }
+
+        .cv-item summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            width: 100%;
+            padding: 2px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .cv-item summary::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .cv-item details[open] > summary::before {
+            content: "▼";
+        }
+
+        .cv-school {
+            color: #222;
+        }
+
+        .cv-time {
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .cv-major {
+            position: relative;
+            padding-left: 24px;
+            color: #555;
+        }
+
+        .cv-major::before {
+            content: "└─";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #aaa;
+        }
         </style>
-  
-     <div class="cv-tree">
-      <!-- Work experience 大板块整体折叠 -->
-      <details class="cv-tree" open>
-  <summary class="cv-tree-title">Work experience/</summary>
-  <div class="cv-tree-children">
-    <div class="tree-item last">
-      <!-- 公司单独可折叠 -->
-      <details open>
-        <summary class="tree-row">
-          <span class="school-name">广州广日电梯工业有限公司</span>
-          <span class="time">2023.12‑2024.04</span>
-        </summary>
-        <div class="tree-sub">费用会计</div>
-      </details>
-    </div>
-  </div>
-</details>
 
-   <!-- Education background大板块整体折叠 -->
-   <details class="cv-tree" open>
-  <summary class="cv-tree-title">Education background/</summary>
-  <div class="cv-tree-children">
-    <div class="tree-item">
-      <details open>
-        <summary class="tree-row">
-          <span class="school-name">长江大学</span>
-          <span class="time">2020.09‑2023.06</span>
-        </summary>
-        <div class="tree-sub">会计专硕</div>
-      </details>
-    </div>
+        <div class="cv-box">
 
-    <div class="tree-item">
-      <details open>
-        <summary class="tree-row">
-          <span class="school-name">广东海洋大学</span>
-          <span class="time">2016.09‑2020.06</span>
-        </summary>
-        <div class="tree-sub">财务管理</div>
-      </details>
-    </div>
+            <!-- Work experience -->
+            <details open>
+                <summary class="cv-section-title">Work experience/</summary>
 
-    <div class="tree-item">
-      <details>
-        <summary class="tree-row">
-          <span class="school-name">信宜中学</span>
-          <span class="time">2013.09‑2016.06</span>
-        </summary>
-      </details>
-    </div>
+                <div class="cv-item">
+                    <details open>
+                        <summary>
+                            <span class="cv-school">广州广日电梯工业有限公司</span>
+                            <span class="cv-time">2023.12-2024.04</span>
+                        </summary>
+                        <div class="cv-major">费用会计</div>
+                    </details>
+                </div>
+            </details>
 
-    <div class="tree-item">
-      <details>
-        <summary class="tree-row">
-          <span class="school-name">信宜市教育城初中</span>
-          <span class="time">2010.09‑2013.06</span>
-        </summary>
-      </details>
-    </div>
+            <!-- Education background -->
+            <details open>
+                <summary class="cv-section-title">Education background/</summary>
 
-    <div class="tree-item">
-      <details>
-        <summary class="tree-row">
-          <span class="school-name">信宜市第三小学</span>
-          <span class="time">2004.09‑2010.06</span>
-        </summary>
-      </details>
-    </div>
+                <div class="cv-item">
+                    <details open>
+                        <summary>
+                            <span class="cv-school">长江大学</span>
+                            <span class="cv-time">2020.09-2023.06</span>
+                        </summary>
+                        <div class="cv-major">会计专硕</div>
+                    </details>
+                </div>
 
-    <div class="tree-item last">
-      <details>
-        <summary class="tree-row">
-          <span class="school-name">（旧）城东幼儿园</span>
-          <span class="time">？</span>
-        </summary>
-      </details>
-    </div>
+                <div class="cv-item">
+                    <details open>
+                        <summary>
+                            <span class="cv-school">广东海洋大学</span>
+                            <span class="cv-time">2016.09-2020.06</span>
+                        </summary>
+                        <div class="cv-major">财务管理</div>
+                    </details>
+                </div>
 
-  </div>
-</details>
-</div>
-        <!-- =========CV新增代码结束========= -->
+                <div class="cv-item">
+                    <details>
+                        <summary>
+                            <span class="cv-school">信宜中学</span>
+                            <span class="cv-time">2013.09-2016.06</span>
+                        </summary>
+                    </details>
+                </div>
+
+                <div class="cv-item">
+                    <details>
+                        <summary>
+                            <span class="cv-school">信宜市教育城初中</span>
+                            <span class="cv-time">2010.09-2013.06</span>
+                        </summary>
+                    </details>
+                </div>
+
+                <div class="cv-item">
+                    <details>
+                        <summary>
+                            <span class="cv-school">信宜市第三小学</span>
+                            <span class="cv-time">2004.09-2010.06</span>
+                        </summary>
+                    </details>
+                </div>
+
+                <div class="cv-item">
+                    <details>
+                        <summary>
+                            <span class="cv-school">(旧) 城东幼儿园</span>
+                            <span class="cv-time">?</span>
+                        </summary>
+                    </details>
+                </div>
+
+            </details>
+
+        </div>
+
     </div>
 </section>
 </div>
