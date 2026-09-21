@@ -304,6 +304,7 @@
 </div>
 
 
+ <!-- 
 <style>
 /*手机端：链接组改为横向自动换行，电脑端维持原有竖向*/
 @media (max-width:768px){
@@ -323,7 +324,27 @@
   }
 }
 </style>
-
+-->
+<style>
+/*手机端：链接组改为横向自动换行，电脑端维持原有竖向*/
+@media (max-width:768px){
+.mobile-link-group{
+width:100% !important;
+margin-left:0 !important;
+margin-right:0 !important;
+text-align:center !important;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:14px 16px;
+margin-bottom:30px !important;  /* 新增：导航块底部空白，推开下方正文 */
+}
+.mobile-link-group > div{
+margin-bottom:0 !important;
+padding-left:0 !important;
+}
+}
+</style>
 
 
 
