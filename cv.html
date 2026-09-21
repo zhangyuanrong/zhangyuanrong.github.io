@@ -48,12 +48,13 @@ title: cv
   content: "└─";
 }
 
-/* 两栏布局，固定结构保证时间列全部对齐 */
+/* 关键：统一三栏结构，所有行时间都从同一位置开始 */
 .tree-row {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
+  grid-template-columns: 20px 1fr auto;
+  gap: 8px 12px;
   width: 100%;
+  align-items: baseline;
 }
 .school-name {
   white-space: nowrap;
@@ -65,21 +66,23 @@ title: cv
   color:#666;
 }
 
-/* 自定义折叠三角 */
+/* 折叠行：三角占第一栏，学校占第二栏，时间占第三栏 */
 .tree-item details summary {
   list-style:none;
   cursor:pointer;
-  position:relative;
-  padding-left:20px;
+  display:grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: 8px 12px;
+  align-items: baseline;
+  padding: 0;
 }
 .tree-item details summary::-webkit-details-marker {
   display:none;
 }
 .tree-item details summary::before {
   content:"▶";
-  position:absolute;
-  left:0;
-  top:1px;
+  display:inline-block;
+  text-align: center;
   font-size:11px;
   color:#666;
 }
@@ -87,7 +90,16 @@ title: cv
   content:"▼";
 }
 
-/* 专业子条目，保持字号更小、垂直间距 */
+/* 静态行：第一栏放透明占位，保证时间列和上面对齐 */
+.tree-item > .tree-row .cv-dummy {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-left: 4px;
+  opacity: 0;
+}
+
+/* 专业子条目 */
 .tree-sub-major{
   position:relative;
   margin-top:6px;
@@ -103,12 +115,6 @@ title: cv
   top:0;
   color:#aaa;
 }
-
-/* 给无折叠条目增加左侧占位，和三角宽度保持一致，实现时间对齐 */
-.tree-item > .tree-row {
-  padding-left: 20px;
-  box-sizing: border-box;
-}
         </style>
   
      <div class="cv-tree">
@@ -118,10 +124,9 @@ title: cv
     <div class="tree-item last">
       <details open>
         <summary>
-          <div class="tree-row">
-            <span class="school-name">广州广日电梯工业有限公司</span>
-            <span class="time">2023.12‑2024.04</span>
-          </div>
+          <span></span>
+          <span class="school-name">广州广日电梯工业有限公司</span>
+          <span class="time">2023.12‑2024.04</span>
         </summary>
         <div class="tree-sub-major">费用会计</div>
       </details>
@@ -134,10 +139,9 @@ title: cv
     <div class="tree-item">
       <details open>
         <summary>
-          <div class="tree-row">
-            <span class="school-name">长江大学</span>
-            <span class="time">2020.09‑2023.06</span>
-          </div>
+          <span></span>
+          <span class="school-name">长江大学</span>
+          <span class="time">2020.09‑2023.06</span>
         </summary>
         <div class="tree-sub-major">会计专硕</div>
       </details>
@@ -145,41 +149,42 @@ title: cv
     <div class="tree-item">
       <details open>
         <summary>
-          <div class="tree-row">
-            <span class="school-name">广东海洋大学</span>
-            <span class="time">2016.09‑2020.06</span>
-          </div>
+          <span></span>
+          <span class="school-name">广东海洋大学</span>
+          <span class="time">2016.09‑2020.06</span>
         </summary>
         <div class="tree-sub-major">财务管理</div>
       </details>
     </div>
 
-    <!-- 无专业条目，自动左侧占位，时间和上方统一对齐 -->
     <div class="tree-item">
       <div class="tree-row">
+        <span class="cv-dummy"></span>
         <span class="school-name">信宜中学</span>
         <span class="time">2013.09‑2016.06</span>
       </div>
     </div>
     <div class="tree-item">
       <div class="tree-row">
+        <span class="cv-dummy"></span>
         <span class="school-name">信宜市教育城初中</span>
         <span class="time">2010.09‑2013.06</span>
       </div>
     </div>
     <div class="tree-item">
-    <div class="tree-row">
-      <span class="school-name">信宜市第三小学</span>
-      <span class="time">2004.09‑2010.06</span>
+      <div class="tree-row">
+        <span class="cv-dummy"></span>
+        <span class="school-name">信宜市第三小学</span>
+        <span class="time">2004.09‑2010.06</span>
+      </div>
     </div>
-  </div> 
-     
     <div class="tree-item last">
-    <div class="tree-row">
-      <span class="school-name">（旧）城东幼儿园</span>
-      <span class="time">？</span>
+      <div class="tree-row">
+        <span class="cv-dummy"></span>
+        <span class="school-name">（旧）城东幼儿园</span>
+        <span class="time">？</span>
+      </div>
     </div>
-  </div> 
   </div>
 </details>
 </div>
