@@ -1,13 +1,22 @@
 <!-- each category page -->
 {% if page.type %}
 <div class="archive">
-  <p class="archive_type">{{ page.type }}</p>
+  
+  <p class="archive_type">
+   {% if page.type == "wechat" %}wechat
+   {% elsif page.type == "bilibili" %}bilibili
+   {% elsif page.type == "writing" %}writing
+   {% else %}{{ page.type }}
+   {% endif %}
+  </p>
+  
+  
   <ul>
     {% for post in site.categories[page.type] %}
     {% if post.url %}
     <li>
         <time class='archive_date' datetime='{{ post.date | date_to_xmlschema }}'>
-          {{ post.date | date: "%b %-d, %Y" }}
+          {{ post.date | date: "%Y-%m-%d" }}
         </time>
         <div class='archive_title'>
           <a href='{{ post.url | relative_url }}'>
@@ -21,32 +30,57 @@
   </ul>
 </div>
 
+
+<div class="archive">
+  <ul>
+  {% assign seen = "" %}
+  {% for post in site.categories[page.type] %}
+  {% if post.url and seen contains post.path == false %}
+  {% assign seen = seen | append: post.path %}
+  <li>
+    <time class='archive_date' datetime='{{ post.date | date_to_xmlschema }}'>
+      {{ post.date | date: "%Y-%m-%d" }}
+    </time>
+    <div class='archive_title'>
+      <a href='{{ post.url | relative_url }}'>
+        {{ post.title | escape }}
+      </a>
+    </div>
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+</div>
+
+
 <!-- main page -->
 {% else %}
 <div class="archive">
-  {% for post in site.posts %}
-  {% unless post.next %}
-  <p class="archive_year">{{ post.date | date: '%Y' }}</p>
-  {% else %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% capture nextyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-  {% if year != nextyear %}
-  <p class="archive_year">{{ post.date | date: '%Y' }}</p>
-  {% endif %}
-  {% endunless %}
-
-  <ul>
-    <li>
-      <time class='archive_date' datetime='{{ post.date | date_to_xmlschema }}'>
-        {{ post.date | date: "%b %d" }}
-      </time>
-      <div class='archive_title'>
-        <a href='{{ post.url | relative_url }}'>
-          {{ post.title | escape }}
-        </a>
-      </div>
-    </li>
-  </ul>
-  {% endfor %}
+{% assign prev_year = "" %}
+{% for post in site.posts %}
+{% assign curr_year = post.date | date: '%Y' %}
+{% if curr_year != prev_year %}
+{% if prev_year != "" %}</ul>{% endif %}
+<p class="archive_year" style="margin-bottom:16px;">{{ curr_year }}</p>
+<ul>
+{% assign prev_year = curr_year %}
+{% endif %}
+<li>
+<time class='archive_date' datetime='{{ post.date | date_to_xmlschema }}'>
+{{ post.date | date: "%m-%d" }}
+</time>
+<div class='archive_title'>
+<a href='{{ post.url | relative_url }}'>
+{{ post.title | escape }}
+</a>
+</div>
+</li>
+{% endfor %}
+{% if prev_year != "" %}</ul>{% endif %}
 </div>
 {% endif %}
+
+
+
+
+

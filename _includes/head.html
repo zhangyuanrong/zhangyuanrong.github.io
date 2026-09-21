@@ -4,6 +4,13 @@
 {% capture title %}{{ site.title }}{% endcapture %}
 {% endif %}
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+
+
+
+
 <head>
   <title>{{ title }}</title>
   {% include google_analytics.html %}
@@ -23,4 +30,38 @@
 
   <!-- font -->
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,400i" rel="stylesheet">
+
+   
+  <style>
+.fa-envelope {
+  color: #222222 !important;
+}
+body.dark .fa-envelope {
+  color: #ffffff !important;
+}
+</style>
+
+
+
+<style>
+.fa-envelope,
+.fa-file-text {
+  color: #ffffff !important;
+  /* 文字阴影，白底上白色图标靠阴影显现 */
+  text-shadow: 0 0 2px #000, 0 0 3px #000 !important;
+  opacity: 1 !important;
+}
+html.dark .fa-envelope,
+html.dark .fa-file-text {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+</style>
+
+
+
+
+
+
+
 </head>

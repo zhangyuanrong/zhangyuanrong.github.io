@@ -712,3 +712,62 @@ img {
         color: var(--footer_font_a);
     }
 }
+
+
+.social-links {
+  font-size: 0.95rem;
+  margin-top: 1.8rem;    /* 调小，原来1.2rem */
+  line-height: 1.8;      /* 关键！原来2.2，改成1.2‑1.4，缩小两行间距 */
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+
+  a {
+    text-decoration: none;
+    color: #2b7bbc;
+    &:hover {
+      color: #1f5f8c;
+      text-decoration: underline;
+    }
+  }
+  i {
+    width: 20px;
+    display: inline-block;
+  }
+}
+
+
+
+[data-mode="dark"] .md-icon {
+    filter:invert(1) !important;
+}
+
+
+
+.sidebar-links li {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:6px 0;
+  list-style:none;
+}
+.sidebar-links img {
+  width:1.2em;
+  height:1.2em;
+}
+
+
+
+/* 黑夜模式下，文章链接的蓝色太刺眼 */
+a {
+  color: #2b548c;
+}
+html.dark a {
+  color: #5276a8 !important;
+}
+
+
+
+
+

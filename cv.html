@@ -1,0 +1,181 @@
+---
+layout: page
+title: cv
+---
+
+<section class="aboutme">
+    <div class="post_content">
+        <p>
+            你好，欢迎来看小张~
+        </p>
+        
+        <!-- =========下面是新增的教育/经历CV部分========= -->
+        
+        <style>
+         
+
+    .cv-tree {
+  
+  margin: 18px auto; 
+  overflow-x: hidden; 
+
+  max-width: 1600px;  /* 新增这一行 */
+  width: 100%;
+
+}
+.cv-tree details {
+  margin: 0;
+}
+.cv-tree summary.cv-tree-title {
+  color: #369;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 4px 0;
+  list-style: revert;
+}
+.cv-tree-children {
+  margin: 8px 0 0 12px;
+  padding: 0;
+}
+.tree-item {
+  position: relative;
+  margin: 6px 0;
+  padding-left: 24px;
+  line-height: 1.7;
+  font-size: 0.88em; /* 全局缩小字体 */
+}
+.tree-item::before {
+  content: "├─";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #aaa;
+}
+.tree-item.last::before {
+  content: "└─";
+}
+
+/* ↓在这里粘贴新增代码 */
+.tree-item > .tree-row {
+  margin-left: 12px;
+}
+
+
+
+.tree-row {
+  display: grid;
+  /* 百分比分配：学校占40%，专业30%，时间30%，总和100% */
+  grid-template-columns: 40% 20% 40%;
+  gap: 14px; /* 增大栏与栏之间的空隙，你可以改成24px/36px微调 */
+  width: 100%;
+}
+.school-name {
+  white-space: nowrap;
+  text-align: left;
+}
+.major-name {
+  white-space: nowrap;
+  text-align: left;
+}
+.time {
+  white-space: nowrap;
+  /*color:#666;*/
+  text-align: left;
+}
+
+
+        </style>
+
+
+
+
+
+
+
+  
+     <div class="cv-tree">
+
+      <details class="cv-tree" open>
+  <summary class="cv-tree-title">Work experience/</summary>
+  <div class="cv-tree-children">
+    <div class="tree-item last">
+      <div class="tree-row">
+        <span class="school-name">广州广日电梯工业有限公司</span>
+        <span class="major-name">费用会计</span>
+        <span class="time">2023.12-2024.04</span>
+      </div>
+    </div>
+  </div>
+</details>
+
+
+
+
+   <details class="cv-tree" open>
+  <summary class="cv-tree-title">Education background/</summary>
+  <div class="cv-tree-children">
+    <div class="tree-item">
+      <div class="tree-row">
+        <span class="school-name">长江大学</span>
+        <span class="major-name">会计专硕</span>
+        <span class="time">2020.09-2023.06</span>
+      </div>
+    </div>
+    <div class="tree-item">
+      <div class="tree-row">
+        <span class="school-name">广东海洋大学</span>
+        <span class="major-name">财务管理</span>
+        <span class="time">2016.09-2020.06</span>
+      </div>
+    </div>
+    <div class="tree-item">
+      <div class="tree-row">
+        <span class="school-name">信宜中学</span>
+        <span class="major-name"></span>
+        <span class="time">2013.09-2016.06</span>
+      </div>
+    </div>
+    <div class="tree-item">
+      <div class="tree-row">
+        <span class="school-name">信宜市教育城初中</span>
+        <span class="major-name"></span>
+        <span class="time">2010.09-2013.06</span>
+      </div>
+    </div>
+    <div class="tree-item">
+    <div class="tree-row">
+      <span class="school-name">信宜市第三小学</span>
+      <span class="major-name"></span>
+      <span class="time">2004.09-2010.06</span>
+    </div>
+  </div> 
+     
+    <div class="tree-item last">
+    <div class="tree-row">
+      <span class="school-name">（旧）城东幼儿园</span>
+      <span class="major-name"></span>
+      <span class="time">？</span>
+    </div>
+  </div> 
+
+
+  </div>
+</details>
+</div>
+
+        <!-- =========CV新增代码结束========= -->
+
+
+   
+         
+   
+   
+
+
+
+
+
+
+
+    </div>
+</section>
