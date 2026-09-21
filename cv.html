@@ -49,27 +49,29 @@ title: cv
 .tree-item.last::before {
   content: "└─";
 }
-/* 学校summary行布局：名称 + 时间靠右 */
-.tree-node-summary {
+
+/* 学校/公司标题行：两栏布局 名称左 时间右 */
+.tree-row {
   display: flex;
-  justify-content: space‑between;
+  justify-content: space-between;
   width: 100%;
 }
-.tree‑node‑summary‑left {
+.school-name {
+  text-align: left;
 }
-.tree‑node‑summary‑right {
+.time {
+  white-space: nowrap;
   color:#666;
-  white‑space:nowrap;
+  text-align: right;
 }
-/* 专业子条目缩进 */
-.tree‑sub‑item{
+
+/* 专业子条目，缩进，子树符号 */
+.tree-sub {
   position:relative;
-  margin:4px 0 4px 24px;
-  padding‑left:24px;
-  font‑size:0.88em;
-  line‑height:1.7;
+  margin:4px 0 4px 22px;
+  padding-left:22px;
 }
-.tree‑sub‑item::before{
+.tree-sub::before {
   content:"└─";
   position:absolute;
   left:0;
@@ -79,96 +81,79 @@ title: cv
         </style>
   
      <div class="cv-tree">
-      <!-- Work experience 大板块，整体可折叠 -->
+      <!-- Work experience 大板块整体折叠 -->
       <details class="cv-tree" open>
   <summary class="cv-tree-title">Work experience/</summary>
   <div class="cv-tree-children">
     <div class="tree-item last">
-      <!-- 公司独立可折叠节点 -->
+      <!-- 公司单独可折叠 -->
       <details open>
-        <summary>
-          <div class="tree-node-summary">
-            <span class="tree‑node‑summary‑left">广州广日电梯工业有限公司</span>
-            <span class="tree‑node‑summary‑right">2023.12‑2024.04</span>
-          </div>
+        <summary class="tree-row">
+          <span class="school-name">广州广日电梯工业有限公司</span>
+          <span class="time">2023.12‑2024.04</span>
         </summary>
-        <div class="tree‑sub‑item">
-            费用会计
-        </div>
+        <div class="tree-sub">费用会计</div>
       </details>
     </div>
   </div>
 </details>
 
-   <!-- Education background大板块，整体可折叠 -->
+   <!-- Education background大板块整体折叠 -->
    <details class="cv-tree" open>
   <summary class="cv-tree-title">Education background/</summary>
   <div class="cv-tree-children">
     <div class="tree-item">
       <details open>
-        <summary>
-          <div class="tree-node-summary">
-            <span class="tree‑node‑summary‑left">长江大学</span>
-            <span class="tree‑node‑summary‑right">2020.09‑2023.06</span>
-          </div>
+        <summary class="tree-row">
+          <span class="school-name">长江大学</span>
+          <span class="time">2020.09‑2023.06</span>
         </summary>
-        <div class="tree‑sub‑item">会计专硕</div>
+        <div class="tree-sub">会计专硕</div>
       </details>
     </div>
 
     <div class="tree-item">
       <details open>
-        <summary>
-          <div class="tree-node-summary">
-            <span class="tree‑node‑summary‑left">广东海洋大学</span>
-            <span class="tree‑node‑summary‑right">2016.09‑2020.06</span>
-          </div>
+        <summary class="tree-row">
+          <span class="school-name">广东海洋大学</span>
+          <span class="time">2016.09‑2020.06</span>
         </summary>
-        <div class="tree‑sub‑item">财务管理</div>
+        <div class="tree-sub">财务管理</div>
       </details>
     </div>
 
     <div class="tree-item">
       <details>
-        <summary>
-          <div class="tree-node-summary">
-            <span class="tree‑node‑summary‑left">信宜中学</span>
-            <span class="tree‑node‑summary‑right">2013.09‑2016.06</span>
-          </div>
-        </summary>
-        <!--无专业，内部留空 -->
-      </details>
-    </div>
-
-    <div class="tree-item">
-      <details>
-        <summary>
-          <div class="tree-node-summary">
-            <span class="tree‑node‑summary‑left">信宜市教育城初中</span>
-            <span class="tree‑node‑summary‑right">2010.09‑2013.06</span>
-          </div>
+        <summary class="tree-row">
+          <span class="school-name">信宜中学</span>
+          <span class="time">2013.09‑2016.06</span>
         </summary>
       </details>
     </div>
 
     <div class="tree-item">
       <details>
-        <summary>
-          <div class="tree-node-summary">
-            <span class="tree‑node‑summary‑left">信宜市第三小学</span>
-            <span class="tree‑node‑summary‑right">2004.09‑2010.06</span>
-          </div>
+        <summary class="tree-row">
+          <span class="school-name">信宜市教育城初中</span>
+          <span class="time">2010.09‑2013.06</span>
+        </summary>
+      </details>
+    </div>
+
+    <div class="tree-item">
+      <details>
+        <summary class="tree-row">
+          <span class="school-name">信宜市第三小学</span>
+          <span class="time">2004.09‑2010.06</span>
         </summary>
       </details>
     </div>
 
     <div class="tree-item last">
       <details>
-        <summary>
-          <div class="tree-node-summary">
-            <span class="tree‑node‑summary‑left">（旧）城东幼儿园</span>
-            <span class="tree‑node‑summary‑right">？</span>
-          </div>
+        <summary class="tree-row">
+          <span class="school-name">（旧）城东幼儿园</span>
+          <span class="time">？</span>
         </summary>
       </details>
     </div>
