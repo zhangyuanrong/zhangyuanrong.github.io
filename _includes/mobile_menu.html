@@ -1,3 +1,6 @@
+
+{% comment %}
+
 <nav class="mobile_menu">
 
   <ul class="nav_list">
@@ -17,3 +20,30 @@
   </ul>
 
 </nav>
+
+
+{% endcomment %}
+
+
+<nav class="mobile_menu">
+<ul class="nav_list">
+{% if site.user.aboutme %}
+<li class="nav_item">
+  <!-- 增加 target="_blank" 新标签打开 -->
+  <a href="{{ site.baseurl }}/aboutme.html" target="_blank" rel="noopener noreferrer">about</a>
+</li>
+{% endif %}
+{% for category in site.categories %}
+{% capture cat_name %}{{ category | first }}{% endcapture %}
+<li class="nav_item">
+  <!-- 这里也加上 target="_blank" -->
+  <a href="{{ site.baseurl }}/categories/{{ cat_name }}/" id="aa" target="_blank" rel="noopener noreferrer">{{ cat_name }} ({{ category | last | size }})</a>
+</li>
+{% endfor %}
+</ul>
+</nav>
+
+
+
+
+
