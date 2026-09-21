@@ -251,7 +251,9 @@ document.addEventListener('DOMContentLoaded', function(){
     e.preventDefault();
     const url = link.getAttribute('href');
     // Catbook主题主内容容器 #main
-    const mainDom = document.querySelector('#main');
+    // const mainDom = document.querySelector('#main');
+    const mainDom = document.querySelector('#main') || document.querySelector('.main') || document.querySelector('.content') || document.querySelector('.post_content');
+
     if(!mainDom){
       window.location.href = url;
       return;
