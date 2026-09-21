@@ -12,7 +12,7 @@ title: cv
         <style>
         .cv-box {
             margin-top: 18px;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.75;
             color: #444;
         }
@@ -30,7 +30,7 @@ title: cv
         /* 外层大标题（Work/Education）样式 */
         .cv-section-title {
             color: #369;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: normal;
             padding:4px 0;
             position:relative;
@@ -41,7 +41,7 @@ title: cv
             position: absolute;
             left:0;
             top:3px;
-            font-size:13px;
+            font-size:12px;
             color:#369;
         }
         .cv-box details[open] > .cv-section-title::before {
@@ -81,26 +81,27 @@ title: cv
             position:absolute;
             left:0;
             top:3px;
-            font-size:12px;
+            font-size:11px;
             color:#666;
         }
         .cv-item details[open] > summary::before {
             content: "▼";
         }
         .cv-school {
-            font-size:14px;
+            font-size:13px;
             color:#222;
         }
         .cv-time {
-            font-size:14px;
+            font-size:13px;
             color:#666;
             white-space:nowrap;
         }
-        /* 专业子项，字号更小 */
+        /* 专业子项，字号更小，增加上边距拉开距离 */
         .cv-major {
             position:relative;
             padding-left:24px;
-            font-size:13px;
+            margin-top:6px;
+            font-size:12px;
             color:#555;
         }
         .cv-major::before {
@@ -151,40 +152,33 @@ title: cv
                     </details>
                 </div>
 
+                <!-- 下面没有专业，直接静态文字，不再有折叠三角 -->
                 <div class="cv-item">
-                    <details>
-                        <summary>
-                            <span class="cv-school">信宜中学</span>
-                            <span class="cv-time">2013.09-2016.06</span>
-                        </summary>
-                    </details>
+                    <div class="cv-row">
+                        <span class="cv-school">信宜中学</span>
+                        <span class="cv-time">2013.09-2016.06</span>
+                    </div>
                 </div>
 
                 <div class="cv-item">
-                    <details>
-                        <summary>
-                            <span class="cv-school">信宜市教育城初中</span>
-                            <span class="cv-time">2010.09-2013.06</span>
-                        </summary>
-                    </details>
+                    <div class="cv-row">
+                        <span class="cv-school">信宜市教育城初中</span>
+                        <span class="cv-time">2010.09-2013.06</span>
+                    </div>
                 </div>
 
                 <div class="cv-item">
-                    <details>
-                        <summary>
-                            <span class="cv-school">信宜市第三小学</span>
-                            <span class="cv-time">2004.09-2010.06</span>
-                        </summary>
-                    </details>
+                    <div class="cv-row">
+                        <span class="cv-school">信宜市第三小学</span>
+                        <span class="cv-time">2004.09-2010.06</span>
+                    </div>
                 </div>
 
                 <div class="cv-item">
-                    <details>
-                        <summary>
-                            <span class="cv-school">(旧) 城东幼儿园</span>
-                            <span class="cv-time">?</span>
-                        </summary>
-                    </details>
+                    <div class="cv-row">
+                        <span class="cv-school">(旧) 城东幼儿园</span>
+                        <span class="cv-time">?</span>
+                    </div>
                 </div>
             </details>
         </div>
