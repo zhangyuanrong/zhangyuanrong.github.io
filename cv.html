@@ -47,7 +47,6 @@ title: cv
 .tree-item.last::before {
   content: "└─";
 }
-
 /* 统一两栏，固定第二列时间的起始位置 */
 .tree-row {
   display: grid;
@@ -64,7 +63,6 @@ title: cv
   white-space:nowrap;
   color:#666;
 }
-
 /* 折叠项summary，直接套用grid两栏，不再额外嵌套span */
 .tree-item details summary {
   display:grid;
@@ -90,7 +88,6 @@ title: cv
 .tree-item details[open] summary::before{
   content:"▼";
 }
-
 /* 专业子条目 */
 .tree-sub-major{
   position:relative;
@@ -107,7 +104,6 @@ title: cv
   top:0;
   color:#aaa;
 }
-
 /* 核心修复：静态行，左侧增加20px内边距，和summary三角占位宽度完全一致 */
 .tree-item > .tree-row {
   padding-left: 20px;
@@ -116,7 +112,7 @@ title: cv
         </style>
   
      <div class="cv-tree">
-      <details class="cv-tree" open>
+      <details class="cv-tree">
   <summary class="cv-tree-title">Work experience/</summary>
   <div class="cv-tree-children">
     <div class="tree-item last">
@@ -130,7 +126,7 @@ title: cv
     </div>
   </div>
 </details>
-   <details class="cv-tree" open>
+   <details class="cv-tree">
   <summary class="cv-tree-title">Education background/</summary>
   <div class="cv-tree-children">
     <div class="tree-item">
@@ -151,7 +147,6 @@ title: cv
         <div class="tree-sub-major">财务管理</div>
       </details>
     </div>
-
     <div class="tree-item">
       <div class="tree-row">
         <span class="school-name">信宜中学</span>
