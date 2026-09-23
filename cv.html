@@ -47,27 +47,28 @@ title: cv
 .tree-item.last::before {
   content: "└─";
 }
-/* 统一两栏，固定第二列时间的起始位置 */
+/* 两栏，缩小gap让学校与时间排版紧凑 */
 .tree-row {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap:12px;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap:6px;
   width:100%;
   align-items: baseline;
 }
 .school-name {
   text-align:left;
+  min-width:0;
 }
 .time {
   text-align:left;
   white-space:nowrap;
   color:#666;
 }
-/* 折叠项summary，直接套用grid两栏，不再额外嵌套span */
+/* 折叠项summary */
 .tree-item details summary {
   display:grid;
-  grid-template-columns:1fr auto;
-  gap:12px;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:6px;
   align-items: baseline;
   list-style:none;
   cursor:pointer;
@@ -104,7 +105,7 @@ title: cv
   top:0;
   color:#aaa;
 }
-/* 核心修复：静态行，左侧增加20px内边距，和summary三角占位宽度完全一致 */
+/* 静态行左侧占位，保证时间（包括？）全部对齐 */
 .tree-item > .tree-row {
   padding-left: 20px;
   box-sizing: border-box;
@@ -116,7 +117,7 @@ title: cv
   <summary class="cv-tree-title">Work experience/</summary>
   <div class="cv-tree-children">
     <div class="tree-item last">
-      <details open>
+      <details>
         <summary>
             <span class="school-name">广州广日电梯工业有限公司</span>
             <span class="time">2023.12‑2024.04</span>
@@ -130,7 +131,7 @@ title: cv
   <summary class="cv-tree-title">Education background/</summary>
   <div class="cv-tree-children">
     <div class="tree-item">
-      <details open>
+      <details>
         <summary>
             <span class="school-name">长江大学</span>
             <span class="time">2020.09‑2023.06</span>
@@ -139,7 +140,7 @@ title: cv
       </details>
     </div>
     <div class="tree-item">
-      <details open>
+      <details>
         <summary>
             <span class="school-name">广东海洋大学</span>
             <span class="time">2016.09‑2020.06</span>
