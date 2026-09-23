@@ -47,29 +47,32 @@ title: cv
 .tree-item.last::before {
   content: "└─";
 }
-/* 两栏，缩小gap让学校与时间排版紧凑 */
+
+/* 使用auto‑auto，按内容宽度，消除多余空白；gap=4px更加紧凑 */
 .tree-row {
   display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  gap:6px;
+  grid-template-columns: auto auto;
+  gap:4px;
   width:100%;
   align-items: baseline;
+  justify-content: start;
 }
 .school-name {
   text-align:left;
-  min-width:0;
 }
 .time {
   text-align:left;
   white-space:nowrap;
   color:#666;
 }
-/* 折叠项summary */
+
+/* 折叠项summary内部布局，和静态行完全一致 */
 .tree-item details summary {
   display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  gap:6px;
+  grid-template-columns:auto auto;
+  gap:4px;
   align-items: baseline;
+  justify-content: start;
   list-style:none;
   cursor:pointer;
   position:relative;
@@ -89,6 +92,7 @@ title: cv
 .tree-item details[open] summary::before{
   content:"▼";
 }
+
 /* 专业子条目 */
 .tree-sub-major{
   position:relative;
@@ -105,7 +109,8 @@ title: cv
   top:0;
   color:#aaa;
 }
-/* 静态行左侧占位，保证时间（包括？）全部对齐 */
+
+/* 静态行左侧20px占位，与summary三角宽度对齐，保证全部时间（含？）统一左对齐 */
 .tree-item > .tree-row {
   padding-left: 20px;
   box-sizing: border-box;
