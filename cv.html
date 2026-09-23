@@ -48,31 +48,30 @@ title: cv
   content: "└─";
 }
 
-/* 使用auto‑auto，按内容宽度，消除多余空白；gap=4px更加紧凑 */
+/* 两列布局，右列固定宽度，所有时间在固定框内左对齐（解决?靠右的根源） */
 .tree-row {
   display: grid;
-  grid-template-columns: auto auto;
-  gap:4px;
+  grid-template-columns: 1fr 180px;
+  gap:8px;
   width:100%;
   align-items: baseline;
-  justify-content: start;
 }
 .school-name {
   text-align:left;
 }
 .time {
-  text-align:left;
+  text-align: left !important;
   white-space:nowrap;
   color:#666;
+  justify-self: start !important;
 }
 
-/* 折叠项summary内部布局，和静态行完全一致 */
+/* 折叠项summary，完全相同网格轨道，右列同样180px固定宽度 */
 .tree-item details summary {
   display:grid;
-  grid-template-columns:auto auto;
-  gap:4px;
+  grid-template-columns:1fr 180px;
+  gap:8px;
   align-items: baseline;
-  justify-content: start;
   list-style:none;
   cursor:pointer;
   position:relative;
@@ -110,7 +109,6 @@ title: cv
   color:#aaa;
 }
 
-/* 静态行左侧20px占位，与summary三角宽度对齐，保证全部时间（含？）统一左对齐 */
 .tree-item > .tree-row {
   padding-left: 20px;
   box-sizing: border-box;
@@ -174,7 +172,7 @@ title: cv
     <div class="tree-item last">
       <div class="tree-row">
         <span class="school-name">（旧）城东幼儿园</span>
-        <span class="time">？</span>
+        <span class="time">?</span>
       </div>
     </div>
   </div>
