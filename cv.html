@@ -47,8 +47,7 @@ title: cv
 .tree-item.last::before {
   content: "└─";
 }
-
-/* 两列布局，右列固定宽度，所有时间在固定框内左对齐（解决?靠右的根源） */
+/* 电脑端保持原样：两列布局，右列固定宽度，所有时间在固定框内左对齐 */
 .tree-row {
   display: grid;
   grid-template-columns: 1fr 180px;
@@ -65,7 +64,6 @@ title: cv
   color:#666;
   justify-self: start !important;
 }
-
 /* 折叠项summary，完全相同网格轨道，右列同样180px固定宽度 */
 .tree-item details summary {
   display:grid;
@@ -91,7 +89,6 @@ title: cv
 .tree-item details[open] summary::before{
   content:"▼";
 }
-
 /* 专业子条目 */
 .tree-sub-major{
   position:relative;
@@ -108,10 +105,32 @@ title: cv
   top:0;
   color:#aaa;
 }
-
 .tree-item > .tree-row {
   padding-left: 20px;
   box-sizing: border-box;
+}
+
+/* =========手机端（屏幕宽度≤768px）========= */
+@media screen and (max-width:768px) {
+  /* 学校名称强制禁止换行 */
+  .school-name {
+    white-space: nowrap !important;
+  }
+  /* 手机改为上下两行：学校在上，时间在下，避免挤压换行 */
+  .tree-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap:2px;
+  }
+  .tree-item details summary {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2px;
+  }
+  .time {
+    /* 手机时间缩进一点，视觉好看 */
+    padding-left: 14px;
+  }
 }
         </style>
   
