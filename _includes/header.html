@@ -265,9 +265,8 @@
     </div>
 {% endfor %}
   </div>
-  <!-- 手机端 Catbook原版横向文字导航 -->
+  <!-- 手机端 Catbook原版横向文字导航：已删除cv，只保留分类 -->
   <div class="mobile-original-links">
-    <a href="{{ site.baseurl }}/cv.html">cv</a> /
 {% for category in site.categories %}
 {% capture cat_name %}{{ category | first }}{% endcapture %}
     <a href="{{ site.baseurl }}/categories/{{ cat_name }}">{{ cat_name }} ({{ category | last | size }})</a>
