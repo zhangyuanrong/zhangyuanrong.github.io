@@ -112,9 +112,12 @@ title: cv
 /* =========手机端（屏幕宽度≤768px）========= */
 @media screen and (max-width:768px) {
   .tree-item {
-    font-size:0.68em;
+    font-size:0.62em;
   }
-  /* 给grid直接子元素min‑width:0，修复summary内部长公司名被截断/撑破布局 */
+  /* summary本身强制min‑width:0，解决浏览器对summary标签的特殊渲染，长名称被截断根源 */
+  .tree-item details summary {
+    min-width: 0;
+  }
   .tree-item details summary > span,
   .tree-row > span {
     min-width: 0;
@@ -124,16 +127,16 @@ title: cv
     min-width: 0;
     overflow: hidden;
   }
-  /* 手机两列，右列固定100px保证时间全部左对齐；gap拉大防挤压 */
+  /* 手机两列布局，左列允许收缩，右列固定100px，gap缩小 */
   .tree-row {
     display: grid;
     grid-template-columns: minmax(0,1fr) 100px;
-    gap:14px;
+    gap:10px;
   }
   .tree-item details summary {
     display:grid;
     grid-template-columns: minmax(0,1fr) 100px;
-    gap:14px;
+    gap:10px;
   }
   .time {
     padding-left:0;
