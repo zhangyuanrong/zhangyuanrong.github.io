@@ -109,13 +109,16 @@ title: cv
   padding-left: 20px;
   box-sizing: border-box;
 }
-
 /* =========手机端（屏幕宽度≤768px）========= */
 @media screen and (max-width:768px) {
   .tree-item {
-    font-size:0.72em;
+    font-size:0.68em;
   }
-  /* 关键：grid子项设置min‑width:0，允许列真正收缩；学校禁止换行 */
+  /* 给grid直接子元素min‑width:0，修复summary内部长公司名被截断/撑破布局 */
+  .tree-item details summary > span,
+  .tree-row > span {
+    min-width: 0;
+  }
   .school-name {
     white-space: nowrap !important;
     min-width: 0;
