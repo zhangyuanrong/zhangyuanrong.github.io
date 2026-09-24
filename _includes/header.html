@@ -1,4 +1,4 @@
-<header class="header">
+=<header class="header">
   <div class="header_content">
     <label class="theme_changer">
       <input theme_toggle type="checkbox">
@@ -8,7 +8,12 @@
       <img src="{{ site.user.pic | relative_url }}" alt="{{ site.user.picAlt }}">
     </a>
     <span class="header_name">{{ site.user.name }}</span>
-    <span class="header_job">{{ site.user.job }}</span>
+    <span class="header_job">
+      <i class="fa fa-envelope"></i>
+      <a href="mailto:zhangyuanrong62@gmail.com" style="margin:0 6px;">Email</a>
+      <i class="fa fa-github"></i>
+      <a href="https://github.com/zhangyuanrong" target="_blank" style="margin:0 6px;">Github</a>
+    </span>
     <span class="header_mes">{{ site.user.message }}</span>
 {% comment %}
 <!-- ============新增学术社交链接开始============ -->
@@ -139,7 +144,7 @@
     {% if cat_name == "bilibili" %}{% assign show_icon = "fa-television" %}{% endif %}
     {% if cat_name == "writing" %}{% assign show_icon = "fa-pencil" %}{% endif %}
     <div style="display:flex;align-items:center;margin-bottom:12px;">
-      <i class="fa {{ show_icon }}" style="width:22px;text-align:left;"></i>
+      <i class="fa {{ show_icon }}" style="width:22px;text-align:left;color:#0000EE;"></i>
       <a href="{{ site.baseurl }}/categories/{{ cat_name }}" style="margin-left:10px;color:#0000EE;">
         {{ show_name }} ({{ category | last | size }})
       </a>
@@ -224,7 +229,6 @@
   {% endfor %}
 </div>
  -->
-
 <div class="link-container">
   <!-- PC端 竖向图标链接 -->
   <div class="pc-links">
@@ -271,7 +275,6 @@
     </div>
 {% endfor %}
   </div>
-
   <!-- 手机端 Catbook原版横向文字导航 -->
   <div class="mobile-original-links">
     <a href="mailto:zhangyuanrong62@gmail.com">Email</a> /
@@ -284,7 +287,6 @@
 {% endfor %}
   </div>
 </div>
-
 <style>
 .pc-links {
   width: fit-content;
@@ -295,7 +297,6 @@
 .mobile-original-links {
   display: none;
 }
-
 @media (max-width: 768px) {
   .pc-links {
     display: none !important;
@@ -316,7 +317,6 @@
   }
 }
 </style>
-
  <!-- 【音乐播放器】
 <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
 <span style="width:22px;display:inline-flex;align-items:center;cursor:pointer;" onclick="openMusicPanel()">

@@ -21,7 +21,7 @@ user:
   name: 张源荣
   pic: /assets/img/cat.jpg
   picAlt: "catbook"
-  job: 又是什么都记不住的一天
+  job: 
   aboutme: true # comment this out if you don't need the 'about' page.
 
 exclude:
