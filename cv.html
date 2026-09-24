@@ -115,21 +115,21 @@ title: cv
   /* 学校名称强制禁止换行 */
   .school-name {
     white-space: nowrap !important;
+    min-width:0;
   }
-  /* 手机改为上下两行：学校在上，时间在下，避免挤压换行 */
+  /* 手机端依旧两列：左列自适应剩余空间，右列auto时间，gap缩小 */
   .tree-row {
     display: grid;
-    grid-template-columns: 1fr;
-    gap:2px;
+    grid-template-columns: minmax(0,1fr) auto;
+    gap:6px;
   }
   .tree-item details summary {
     display:grid;
-    grid-template-columns:1fr;
-    gap:2px;
+    grid-template-columns: minmax(0,1fr) auto;
+    gap:6px;
   }
   .time {
-    /* 手机时间缩进一点，视觉好看 */
-    padding-left: 14px;
+    padding-left:0;
   }
 }
         </style>
