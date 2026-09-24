@@ -1,4 +1,4 @@
-=<header class="header">
+<header class="header">
   <div class="header_content">
     <label class="theme_changer">
       <input theme_toggle type="checkbox">
@@ -233,14 +233,6 @@
   <!-- PC端 竖向图标链接 -->
   <div class="pc-links">
     <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
-      <i class="fa fa-envelope" style="width:22px;text-align:left;"></i>
-      <a href="mailto:zhangyuanrong62@gmail.com" data-no-pjax style="margin-left:10px;color:#2b548c;">Email</a>
-    </div>
-    <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
-      <i class="fa fa-github" style="width:22px;text-align:left;color:#5a32a8;"></i>
-      <a href="https://github.com/zhangyuanrong" target="_blank" data-no-pjax style="margin-left:10px;color:#2b548c;">Github</a>
-    </div>
-    <div style="display:flex;align-items:center;margin-bottom:12px;padding-left:2px;">
       <i class="fa fa-linkedin-square" style="width:22px;text-align:left;color:#0077B5;"></i>
       <a href="{{ site.baseurl }}/cv.html" data-no-pjax style="margin-left:10px;color:#2b548c;">cv</a>
     </div>
@@ -277,8 +269,6 @@
   </div>
   <!-- 手机端 Catbook原版横向文字导航 -->
   <div class="mobile-original-links">
-    <a href="mailto:zhangyuanrong62@gmail.com">Email</a> /
-    <a href="https://github.com/zhangyuanrong" target="_blank">Github</a> /
     <a href="{{ site.baseurl }}/cv.html">cv</a> /
 {% for category in site.categories %}
 {% capture cat_name %}{{ category | first }}{% endcapture %}
