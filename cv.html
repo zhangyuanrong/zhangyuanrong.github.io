@@ -112,24 +112,25 @@ title: cv
 
 /* =========手机端（屏幕宽度≤768px）========= */
 @media screen and (max-width:768px) {
-  /* 手机缩小整体字体，学校名称强制禁止换行 */
   .tree-item {
-    font-size:0.76em;
+    font-size:0.72em;
   }
+  /* 关键：grid子项设置min‑width:0，允许列真正收缩；学校禁止换行 */
   .school-name {
     white-space: nowrap !important;
-    min-width:0;
+    min-width: 0;
+    overflow: hidden;
   }
-  /* 手机两列布局，左自适应，右固定宽度，统一时间左对齐 */
+  /* 手机两列，右列固定100px保证时间全部左对齐；gap拉大防挤压 */
   .tree-row {
     display: grid;
-    grid-template-columns: minmax(0,1fr) 110px;
-    gap:10px;
+    grid-template-columns: minmax(0,1fr) 100px;
+    gap:14px;
   }
   .tree-item details summary {
     display:grid;
-    grid-template-columns: minmax(0,1fr) 110px;
-    gap:10px;
+    grid-template-columns: minmax(0,1fr) 100px;
+    gap:14px;
   }
   .time {
     padding-left:0;
