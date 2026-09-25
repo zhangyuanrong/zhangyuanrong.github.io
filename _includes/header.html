@@ -302,7 +302,6 @@
   width: fit-content;
   margin: 24px auto 0;
   text-align: left;
-  /* 删除原来的margin‑left偏移，由margin:auto实现整体居中 */
 }
 .mobile-original-links {
   display: none;
@@ -314,9 +313,12 @@
   .mobile-original-links {
     display: block !important;
     text-align: center;
-    font-size: 17px;
+    font-size: 13px;
     margin:12px 0 28px 0;
     line-height:1.6;
+  }
+  .mobile-original-links > span {
+    white-space: nowrap;
   }
   .mobile-original-links a {
     color:#6b5ca5;
