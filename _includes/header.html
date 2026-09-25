@@ -292,7 +292,6 @@
 {% endif %}
 <a href="{{ site.baseurl }}/categories/{{ cat_name }}">{{ cat_name }} ({{ category | last | size }})</a>
 </span>
-{% if forloop.last == false %}<span class="mobile-divider"></span>{% endif %}
 {% endfor %}
   </div>
 </div>
@@ -311,14 +310,17 @@
     display: none !important;
   }
   .mobile-original-links {
-    display: block !important;
-    text-align: center;
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 12px;
     font-size: 13px;
     margin:12px 0 28px 0;
-    line-height:1.6;
   }
   .mobile-original-links > span {
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
   }
   .mobile-original-links a {
     color:#6b5ca5;
@@ -326,14 +328,6 @@
   }
   .mobile-original-links a:hover {
     text-decoration:underline;
-  }
-  .mobile-divider {
-    display: inline-block;
-    width: 1px;
-    height: 22px;
-    background-color: #999999;
-    margin: 0 7px;
-    vertical-align: middle;
   }
 }
 </style>
