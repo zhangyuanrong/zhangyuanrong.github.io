@@ -232,7 +232,7 @@
 </div>
  -->
 <div class="link-container">
-  <!-- PC端 竖向图标链接 -->
+  <!-- PC端 竖向图标链接：整体水平居中，内部图标左对齐、文字左对齐 -->
   <div class="pc-links">
 {% for category in site.categories %}
 {% capture cat_name %}{{ category | first }}{% endcapture %}
@@ -297,11 +297,12 @@
   </div>
 </div>
 <style>
+/* pc-links：容器整体页面水平居中；内部子元素保持左对齐 */
 .pc-links {
   width: fit-content;
   margin: 24px auto 0;
   text-align: left;
-  margin-left: calc(50% - 30px);
+  /* 删除原来的margin‑left偏移，由margin:auto实现整体居中 */
 }
 .mobile-original-links {
   display: none;
