@@ -7,7 +7,8 @@ cd /d "%~dp0"
 :: ========== bilibili 99篇 N=2~100 ==========
 for /L %%i in (2,1,100) do (
 set "fn=_posts/bilibili/2026-09-17-b%%i.md"
-echo ---^>title: 会计‑第%%i篇>!fn!
+echo --->!fn!
+echo title: 会计‑第%%i篇>>!fn!
 echo categories: bilibili>>!fn!
 echo comments: true>>!fn!
 echo --->>!fn!
@@ -20,7 +21,8 @@ echo - ^<u^>^<a href="https://www.bilibili.com/video/BV11LsgzJEBm/?spm_id_from=3
 :: ========== wechat 99篇 N=2~100 ==========
 for /L %%i in (2,1,100) do (
 set "fn=_posts/wechat/2026-09-18-c%%i.md"
-echo ---^>title: 水一：借贷无意义‑第%%i篇>!fn!
+echo --->!fn!
+echo title: 水一：借贷无意义‑第%%i篇>>!fn!
 echo categories: wechat>>!fn!
 echo comments: true>>!fn!
 echo --->>!fn!
@@ -46,7 +48,8 @@ echo 资产↑+成本Δ+费用Δ=负债Δ+所有者权益Δ+收入↑>>!fn!
 :: ========== writing 99篇 N=2~100 ==========
 for /L %%i in (2,1,100) do (
 set "fn=_posts/writing/2026-09-16-w%%i.md"
-echo ---^>title: 审计‑第%%i篇>!fn!
+echo --->!fn!
+echo title: 审计‑第%%i篇>>!fn!
 echo categories: writing>>!fn!
 echo comments: true>>!fn!
 echo --->>!fn!
