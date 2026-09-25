@@ -141,6 +141,11 @@ title: cv
   .time {
     padding-left:0;
   }
+  /* 仅手机端：修正三角垂直居中，电脑端不受影响 */
+  .tree-item details summary::before {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
         </style>
   
