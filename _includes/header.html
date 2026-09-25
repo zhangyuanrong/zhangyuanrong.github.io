@@ -265,7 +265,7 @@
     </div>
 {% endfor %}
   </div>
-  <!-- 手机端 Catbook原版横向文字导航：给每个分类加上和pc一致图标，保持横向排列 -->
+  <!-- 手机端：横向排列，图标统一容器约束，尺寸差异上下平分，中心线对齐 -->
   <div class="mobile-original-links">
 {% for category in site.categories %}
 {% capture cat_name %}{{ category | first }}{% endcapture %}
@@ -282,13 +282,13 @@
 {% if cat_name == "writing" %}
 {% assign show_icon = "md-img" %}
 {% endif %}
-<span style="display:inline-flex;align-items:center;">
+<span class="mobile-item">
 {% if show_icon == "bili-img" %}
-<img src="{{ site.baseurl }}/assets/img/bilibili.png" style="width:16px;height:16px;object-fit:cover;margin-right:4px;">
+<img class="mobile-icon" src="{{ site.baseurl }}/assets/img/bilibili.png" style="object-fit:cover;">
 {% elsif show_icon == "md-img" %}
-<img src="{{ site.baseurl }}/assets/img/md.png" style="width:16px;height:16px;object-fit:cover;margin-right:4px;filter:drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 4px #ffffff);">
+<img class="mobile-icon" src="{{ site.baseurl }}/assets/img/md.png" style="object-fit:cover;filter:drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 4px #ffffff);">
 {% else %}
-<i class="fa {{ show_icon }}" style="font-size:16px;margin-right:4px;color:{{ icon_color }};"></i>
+<i class="fa {{ show_icon }} mobile-icon" style="color:{{ icon_color }};"></i>
 {% endif %}
 <a href="{{ site.baseurl }}/categories/{{ cat_name }}">{{ cat_name }} ({{ category | last | size }})</a>
 </span>
@@ -317,10 +317,19 @@
     font-size: 13px;
     margin:12px 0 28px 0;
   }
-  .mobile-original-links > span {
+  .mobile-item {
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
+  }
+  /* 统一16px正方形容器，图标不管原图大小，多余空间上下平分，以中心线对齐 */
+  .mobile-icon {
+    width:16px;
+    height:16px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    margin-right:4px;
   }
   .mobile-original-links a {
     color:#6b5ca5;
