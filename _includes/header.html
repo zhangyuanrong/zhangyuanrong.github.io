@@ -14,7 +14,7 @@
       <i class="fa fa-github"></i>
       <a href="https://github.com/zhangyuanrong" target="_blank" style="margin:0 6px;">Github</a>
       <i class="fa fa-linkedin-square"></i>
-      <a href="{{ site.baseurl }}/cv.html" data-no-pjax style="margin:0 6px;">cv</a>
+      <a href="{{ site.baseurl }}/cv.html" data-no-pjax style="margin:0 6px;">CV</a>
     </span>
     <span class="header_mes">{{ site.user.message }}</span>
 {% comment %}
@@ -292,7 +292,7 @@
 {% endif %}
 <a href="{{ site.baseurl }}/categories/{{ cat_name }}">{{ cat_name }} ({{ category | last | size }})</a>
 </span>
-{% if forloop.last == false %} / {% endif %}
+{% if forloop.last == false %}<span class="mobile-divider">❙</span>{% endif %}
 {% endfor %}
   </div>
 </div>
@@ -326,6 +326,14 @@
   }
   .mobile-original-links a:hover {
     text-decoration:underline;
+  }
+  .mobile-divider {
+    display:inline-flex;
+    align-items:center;
+    font-size:18px;
+    margin:0 6px;
+    color:#888888;
+    vertical-align:middle;
   }
 }
 </style>
